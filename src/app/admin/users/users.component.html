@@ -1,0 +1,49 @@
+<div *ngIf="message" class="message">
+    {{ message }}
+   </div>
+   
+   <div>
+       <h2>User Details</h2>
+       <table>
+          <thead>
+            <tr>
+              <th>User ID</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{ user.userID }}</td>
+              <td>{{ user.username }}</td>
+              <td>{{ user.email }}</td>
+              <td>
+                <button (click)="selectUser(user)">Update</button>
+                <button (click)="deleteUser(user.userID)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+       </table>
+   </div>
+   
+   <div *ngIf="selectedUser">    
+       <h2>Update User Details</h2>
+       <form [formGroup]="updateUserForm" (ngSubmit)="updateUser()">
+          <label>
+            User ID:
+            <input type="text" formControlName="userID" readonly>
+          </label>
+          <label>
+            Username:
+            <input type="text" formControlName="username" required>
+          </label>
+          <label>
+            Email:
+            <input type="text" formControlName="email" required>
+          </label>
+       
+          <button type="submit">Update</button>
+       </form>
+   </div>
+   
