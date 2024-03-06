@@ -1,0 +1,30 @@
+<div class="cont">
+    <div class="header">
+        <h1>Welcome to Admin Portal</h1>
+    </div>
+
+    <div class="main-content">
+        <div class="row ">
+            <div class="col-md-6">
+                <div class="division-cont">
+                    <div class="division">
+                        <h2 class="division-heading">User Details</h2>
+                        <button class="button-56" routerLink="/admin/users" (click)="userDetails()">USER DETAILS</button>
+                    </div>
+                    
+                    <div class="division">
+                        <h2 class="division-heading">Item Listings</h2>
+                        <button class="button-56" routerLink="/admin/listings" (click)="listings()">ITEM LISTINGS</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="logout-button">
+            <button (click)="logout()">Logout</button>
+        </div>
+    </div>
+   
+    <div class="footer">
+        <p>&copy; 2023 Our Platform. All rights reserved.</p>
+    </div>
+</div>

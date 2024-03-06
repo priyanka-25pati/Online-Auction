@@ -1,0 +1,82 @@
+
+$primary-color: #38598b; 
+$secondary-color: #a2a8d3; 
+$accent-color: #9896f1;
+$text-color: #8594e4; 
+
+body {
+ background-color: $primary-color;
+ margin: 0;
+ font-family: 'Arial', sans-serif; 
+}
+
+h2 {
+   font-style: italic;
+   font-weight:700;
+}
+
+.main-container {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+ background-image: url('/assets/3.jpg');
+ background-size: cover;
+ background-position: center;
+ padding: 20px;
+ color: $text-color; 
+ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.user-details-table, .update-form {
+ width: 100%;
+ color: black; 
+ margin-bottom: 20px;
+ font-size: 18px; 
+ background-color: rgba(255, 255, 255, 0.8);
+ padding: 50px; 
+ border-radius: 0px; 
+ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.user-details-table th, .user-details-table td,
+.update-form th, .update-form td {
+ padding: 15px;
+ border: 1px solid white;
+}
+
+.update-form label {
+ font-size: 18px; 
+ color: black; 
+ font-weight: bold;
+}
+
+.update-success {
+ color: $secondary-color;
+ font-weight: bold; 
+}
+
+.update-form-container {
+ max-width: 600px; 
+ width: 100%;
+}
+
+.btn {
+ background-color: $accent-color;
+ color: white;
+ border: none;
+ padding: 10px 20px;
+ border-radius: 0px; 
+ font-size: 16px;
+ cursor: pointer;
+ transition: background-color 0.3s ease;
+
+ &:hover {
+   background-color: darken($accent-color, 10%);
+ }
+}
+
+.update-form input {
+ margin-bottom: 15px;
+}

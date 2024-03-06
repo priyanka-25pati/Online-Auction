@@ -1,0 +1,42 @@
+
+<div class="main-container">
+  <div *ngIf="user">
+     <h2>My Information</h2>
+     <table class="user-details-table">
+         <tr>
+           <th>User ID</th>
+           <td>{{ user.userID }}</td>
+         </tr>
+         <tr>
+           <th>Username</th>
+           <td>{{ user.username }}</td>
+         </tr>
+         <tr>
+           <th>Email</th>
+           <td>{{ user.email }}</td>
+         </tr>
+       
+     </table>
+     
+     <h2>Update My Information</h2>
+     <form [formGroup]="updateForm" (ngSubmit)="onUpdateSubmit()" class="update-form">
+         <div>
+           <label for="email">Email:</label>
+           <input type="email" id="email" formControlName="email">
+         </div>
+         <div>
+           <label for="username">Username:</label>
+           <input type="text" id="username" formControlName="username">
+         </div>
+         <button type="submit" class="btn btn-primary">Update</button>
+     </form>
+     
+     <div *ngIf="updateSuccess" class="update-success">
+         <p>Your information has been updated successfully.</p>
+     </div>
+  </div>
+  <div *ngIf="!user">
+     <p>No user details found.</p>
+  </div>
+ </div>
+ 

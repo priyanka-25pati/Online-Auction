@@ -1,0 +1,66 @@
+
+$primary-color: #5583EE;
+$secondary-color: #41D8DD;
+$tertiary-color: #6CACFF;
+$quaternary-color: #8DEBFF;
+$confirmation-bg: #111d5e;
+$confirmation-text: #ffffff;
+
+@mixin button-styles {
+ padding: 0.5rem 1rem;
+ font-size: 1rem;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+ transition: background-color 0.3s ease;
+}
+
+.container {
+    margin-top: 5rem; 
+}
+
+.row {
+    justify-content: center;
+}
+
+.col-md-6 {
+    max-width: 500px; 
+}
+
+.card {
+    background-color: $confirmation-bg;
+    color: $confirmation-text;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto; 
+}
+
+.card-header {
+    text-align: center;
+    font-size: 1.5rem; 
+    font-weight: bold;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.card-text {
+    font-size: 1rem; 
+    margin-bottom: 2rem;
+}
+
+.btn-primary {
+    @include button-styles;
+    background-color: $primary-color;
+    color: $confirmation-text;
+    border: none;
+    &:hover {
+        background-color: darken($primary-color, 10%);
+    }
+}

@@ -1,0 +1,17 @@
+<div class="checkout-container">
+    <div class="input-box">
+        <h2>Enter Item ID</h2>
+        <input type="number" #itemIDInput placeholder="Item ID">
+        <button (click)="fetchCurrentHighestBid(+itemIDInput.value)">Fetch Current Highest Bid</button>
+    </div>
+   
+    <div *ngIf="currentBid !== null" class="current-bid-container">
+       <h3>Current Highest Bid: {{ currentBid }}</h3>
+    </div>
+   
+    <div class="buttons-container">
+       <!-- Use a click event binding to call navigateToPaymentPage -->
+       <button [disabled]="currentBid === null" (click)="navigateToPaymentPage()">Pay</button>
+       <button routerLink="/auction/item-listing">Cancel</button>
+    </div>
+</div>

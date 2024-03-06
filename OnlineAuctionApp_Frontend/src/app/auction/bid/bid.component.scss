@@ -1,0 +1,75 @@
+// Define color variables
+$primary-color: #301781;
+$secondary-color: #80c0ce;
+$tertiary-color: #51adcf;
+$quaternary-color: rgba(137, 196, 255, 0.8); // Updated to include transparency
+
+// Define styles for the landing page
+.cont {
+    width: 100%; // Expand to the entire page width
+    height: 100vh; // Expand to the entire page height
+    margin: 0; // Remove default margin
+    padding: 0; // Remove padding
+    box-sizing: border-box; // Include padding and border in the element's total width and height
+    background-image: url('/assets/8.jpg'); // Keep your image path here
+    background-size: cover; // Cover the entire container
+    background-position: center; // Center the background image
+    background-repeat: no-repeat; // Prevent the image from repeating
+    color: #fff;
+    border-radius: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    h2 {
+        color: white;
+        font-weight: bolder;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+
+        label {
+            color: white;
+            font-weight: bold;
+        }
+
+        input[type="number"], input[type="text"] {
+            background-color: rgba(255, 255, 255, 0.6); // White with transparency
+            color: #000;
+            border: 1px solid $secondary-color;
+            border-radius: 0px;
+            padding: 10px;
+            width: 100%;
+
+            &:focus {
+                border-color: $primary-color;
+            }
+        }
+
+        .text-danger {
+            color: $primary-color;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+    }
+
+    button[type="submit"] {
+        background-color: $secondary-color;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: darken($secondary-color, 10%);
+        }
+
+        &:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    }
+}

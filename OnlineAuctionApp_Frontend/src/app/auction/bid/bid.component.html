@@ -1,0 +1,48 @@
+<div class="cont">
+    <h2>Bid on Item</h2>
+    <div *ngIf="successMessage" class="alert alert-success" role="alert">
+        {{ successMessage }}
+    </div>
+
+    <!-- Form for Placing a New Bid -->
+    <form [formGroup]="bidForm" (ngSubmit)="placeBid()">
+        <!-- Input for Item ID -->
+        <div class="form-group">
+            <label for="itemId">Enter Item ID:</label>
+            <input type="number" id="itemId" formControlName="itemID" class="form-control" required aria-label="Enter Item ID">
+            <div *ngIf="bidForm.get('itemID')?.invalid && bidForm.get('itemID')?.touched">
+                <small class="text-danger" *ngIf="bidForm.get('itemID')?.errors?.['required']">Item ID is required.</small>
+                <small class="text-danger" *ngIf="bidForm.get('itemID')?.errors?.['min']">Item ID must be greater than 0.</small>
+            </div>
+        </div>
+
+        <!-- Placeholder for Current Highest Bid -->
+        <div *ngIf="currentBid !== null" class="form-group">
+            <label for="currentHighestBid">Current Highest Bid:</label>
+            <input type="text" id="currentHighestBid" class="form-control" [value]="currentBid" readonly>
+        </div>
+
+        <!-- Input for Bidder ID -->
+        <div class="form-group">
+            <label for="bidderId">Enter your bidder ID:</label>
+            <input type="number" id="bidderId" formControlName="bidderID" class="form-control" required aria-label="Enter your bidder ID">
+            <div *ngIf="bidForm.get('bidderID')?.invalid && bidForm.get('bidderID')?.touched">
+                <small class="text-danger" *ngIf="bidForm.get('bidderID')?.errors?.['required']">Bidder ID is required.</small>
+                <small class="text-danger" *ngIf="bidForm.get('bidderID')?.errors?.['min']">Bidder ID must be greater than 0.</small>
+            </div>
+        </div>
+
+        <!-- Input for New Bid -->
+        <div class="form-group">
+            <label for="newBid">Enter your bid:</label>
+            <input type="number" id="newBid" formControlName="newBid" class="form-control" required aria-label="Enter your bid">
+            <!-- <div *ngIf="bidForm.get('newBid')?.invalid && bidForm.get('newBid')?.touched">
+                <small class="text-danger" *ngIf="bidForm.get('newBid')?.errors?.['required']">Bid is required.</small>
+                <small class="text-danger" *ngIf="bidForm.get('newBid')?.errors?.['min']">Bid must be greater than 0.</small>
+                <small class="text-danger" *ngIf="bidForm.get('newBid')?.errors?.['greaterThanCurrentBid']">Bid must be greater than the current highest bid.</small>
+            </div> -->
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!bidForm.valid">Submit Bid</button>
+    </form>
+</div>

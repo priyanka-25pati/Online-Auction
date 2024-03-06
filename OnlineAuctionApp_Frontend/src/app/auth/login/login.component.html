@@ -1,0 +1,22 @@
+<div class="main-container">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+
+    <div class="background-image"></div>
+
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <h3 class="custom-heading display-4 display-md-3">Login</h3>
+
+        <label for="email">Email</label>
+        <input type="email" formControlName="email" placeholder="Email" id="email">
+
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" placeholder="Password" id="password">
+
+        <button type="submit">Log In</button>
+    </form>
+</div>

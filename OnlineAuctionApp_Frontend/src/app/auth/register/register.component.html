@@ -1,0 +1,26 @@
+<div class="main-container">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <h3 class="custom-heading display-4 display-md-3">Register</h3>
+
+        <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" formControlName="username">
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" formControlName="email">
+        </div>
+        <div>
+            <label for="passwordHash">Password</label>
+            <input type="password" id="passwordHash" formControlName="passwordHash">
+        </div>
+        <button type="submit">Register</button>
+    </form>
+</div>
