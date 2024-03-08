@@ -33,12 +33,7 @@ namespace OnlineAuctionApp.Services
                 throw new ArgumentNullException(nameof(item));
             }
 
-            // You can perform any business logic validation here before calling the repository method
-            // For example:
-            // if (item.StartTime > item.EndTime) 
-            // {
-            //     throw new ArgumentException("End time must be after start time.");
-            // }
+           
 
             await _itemRepository.AddItem(item);
             return item; 

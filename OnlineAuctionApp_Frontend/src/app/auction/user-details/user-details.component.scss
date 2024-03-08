@@ -25,7 +25,8 @@ h2 {
  background-size: cover;
  background-position: center;
  padding: 20px;
- color: $text-color; 
+ font-size: medium;
+ color: white; 
  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
@@ -53,7 +54,7 @@ h2 {
 }
 
 .update-success {
- color: $secondary-color;
+ color: white;
  font-weight: bold; 
 }
 
@@ -75,6 +76,23 @@ h2 {
  &:hover {
    background-color: darken($accent-color, 10%);
  }
+ /* Add this to your component's CSS file */
+.d-flex {
+   position: relative;
+}
+
+.d-flex button:first-child {
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+
+.d-flex button:last-child {
+   position: absolute;
+   top: 0;
+   right: 0;
+}
+
 }
 
 .update-form input {

@@ -58,7 +58,6 @@ namespace OnlineAuctionApp.Controllers
                 // Generate JWT token for the authenticated user
                 var token = GenerateJwtToken(authenticatedUser);
 
-                // Create the response object as an anonymous object
                 var response = new
                 {
                     User = authenticatedUser,
@@ -80,7 +79,6 @@ namespace OnlineAuctionApp.Controllers
                 // Generate JWT token for the authenticated admin
                 var token = GenerateJwtToken(authenticatedAdmin);
 
-                // Create the response object as an anonymous object
                 var response = new
                 {
                     Admin = authenticatedAdmin,
@@ -177,7 +175,7 @@ namespace OnlineAuctionApp.Controllers
                 }
                 claims.Add(new Claim(ClaimTypes.Name, user.Username));
                 claims.Add(new Claim(ClaimTypes.Email, user.Email));
-                // Add other claims as needed for Users
+             
             }
             else if (userOrAdmin is Admins admin)
             {
@@ -185,9 +183,8 @@ namespace OnlineAuctionApp.Controllers
                 {
                     throw new ArgumentNullException(admin.AdminName == null ? nameof(admin.AdminName) : nameof(admin.Email), "AdminName and Email cannot be null.");
                 }
-                claims.Add(new Claim(ClaimTypes.Name, admin.AdminName)); // Assuming Admins has a property AdminName
-                claims.Add(new Claim(ClaimTypes.Email, admin.Email)); // Assuming Admins has an Email property
-                                                                      // Add other claims as needed for Admins
+                claims.Add(new Claim(ClaimTypes.Name, admin.AdminName));
+                claims.Add(new Claim(ClaimTypes.Email, admin.Email)); 
             }
             else
             {

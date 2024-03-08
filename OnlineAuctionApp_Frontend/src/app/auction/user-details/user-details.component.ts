@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from 'src/shared/services/users.service';
 import { User } from 'src/shared/models/users-interface';
+import { Router } from '@angular/router';
 
 @Component({
  selector: 'app-user-details',
@@ -20,7 +21,8 @@ export class UserDetailsComponent implements OnInit {
  */
  constructor(
     private usersService: UsersService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router:Router
  ) {
     this.updateForm = this.formBuilder.group({
       email: ['', Validators.required],
@@ -53,7 +55,9 @@ export class UserDetailsComponent implements OnInit {
   
     }
  }
-
+ navigateToItemListing() {
+  this.router.navigate(['/auction/item-listing']);
+}
  /**
  * Handles the form submission for updating user details.
  */
@@ -66,6 +70,7 @@ export class UserDetailsComponent implements OnInit {
      console.error('User ID is not available for update.');
      return;
  }
+
 
  const updatedUser: User = {
      userID: this.user.userID, 

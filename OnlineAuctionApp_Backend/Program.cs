@@ -50,19 +50,6 @@ builder.Services.AddTransient<IUserService, UserService>();
 
 
 
-builder.Services.AddScoped<IPayment, PaymentRepo>();
-builder.Services.AddTransient<IPaymentService, PaymentService>();
-
-
-
-
-builder.Services.AddScoped<IUserDashboard, UserDashboardRepo>();
-builder.Services.AddTransient<IUserDashboardService, UserDashboardService>();
-
-
-
-
-
 builder.Services.AddCors((o) =>
 {
     o.AddPolicy("corspolicy", b => b.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());

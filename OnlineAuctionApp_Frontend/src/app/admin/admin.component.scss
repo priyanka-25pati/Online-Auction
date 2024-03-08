@@ -1,52 +1,50 @@
-// Define color variables
+
 $primary-color: #1292EE;
 $secondary-color: #0077CC;
 $tertiary-color: #034077;
 $quaternary-color: #002651;
 
-// Reset overflow and set up flex layout
 .cont {
     height: 100vh;
     margin: 0;
     display: flex;
     flex-direction: column;
-    overflow-y: hidden; // Hide vertical scrollbar
+    overflow-y: hidden; 
 }
 
-// Define styles
 .header,.footer {
     background-color: $primary-color;
     color: white;
     padding: 1.5rem;
     text-align: center;
-    flex-shrink: 0; // Prevents these elements from shrinking
+    flex-shrink: 0; 
 }
 
 .main-content {
     display: flex;
-    flex-direction: column; // Stack children vertically
-    justify-content: center; // Center horizontally
-    align-items: center; // Center vertically
-    height: 100vh; // Adjusted to ensure the container takes up the full viewport height
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
     background-color: #D6EDFF;
-    overflow-y: hidden; // Enable vertical scrolling if content overflows
-    padding: 2rem 0; // Add padding to the top and bottom to create space
+    overflow-y: hidden; 
+    padding: 2rem 0; 
 }
 
 .division-cont {
     display: flex;
-    flex-direction: row; // Ensure items are placed horizontally
-    justify-content: center; // Center items horizontally
-    align-items: center; // Center items vertically
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center; 
     padding: 30px;
-    width: 30vw; // Ensure it takes full width of its parent, adjust as needed
+    width: 30vw; 
     background-color: $secondary-color;
     color: white;
     padding: 3rem;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    gap: 2rem; // Add space between child elements
-    margin-top: 2rem; // Add space above the division-cont to separate it from the header
+    gap: 2rem; 
+    margin-top: 2rem; 
 }
 
 .division-heading {
@@ -68,21 +66,21 @@ $quaternary-color: #002651;
 }
 
 
-// Logout Button Styling
+
 .logout-button {
     display: flex;
-    justify-content: center; // Center horizontally
-    align-items: center; // Center vertically
-    padding: 2rem; // Add some padding around the button
-    background-color: #D6EDFF; // Use the same background color as .main-content
-    color: white; // White text for contrast
-    border-radius: 0px; // Rounded corners
-    margin-top: 2rem; // Add space above the logout button
-    width: 100%; // Ensure it takes full width of its parent
+    justify-content: center;
+    align-items: center; 
+    padding: 2rem; 
+    background-color: #D6EDFF; 
+    color: white; 
+    border-radius: 0px; 
+    margin-top: 2rem; 
+    width: 100%; 
 
     button {
-        background-color: $tertiary-color; // Button color, same as .logout-button background
-        color: white; // Button text color
+        background-color: $tertiary-color; 
+        color: white; 
         border: none;
         padding: 0.5rem 1rem;
         font-size: 1rem;
@@ -90,7 +88,7 @@ $quaternary-color: #002651;
         transition: background-color 0.3s ease;
 
         &:hover {
-            background-color: darken(#89c4ff, 10%); // Change button color on hover
+            background-color: darken(#89c4ff, 10%); 
         }
     }
 }

@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
      },
      error: (error) => {
        console.error('Login failed', error);
-       console.log("asdhere2");
+
        
        this.router.navigate(['/register']); 
      }

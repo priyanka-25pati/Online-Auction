@@ -5,7 +5,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <!-- Brand -->
-            <a class="navbar-brand" href="#">Auction App</a>
+            <a class="navbar-brand" href="#">Auction Hub</a>
 
             <!-- Toggler/collapsible Button -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +16,6 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav mr-auto">
                     <button class="btn btn-primary" (click)="showAddItemForm = !showAddItemForm">Add New Item</button>
-                    <button class="btn btn-primary" routerLink="/bid">Bid</button>
                 </div>
                 <div class="navbar-nav ml-auto">
                     <!-- User Profile Dropdown -->
@@ -90,7 +89,18 @@
             <label for="status">Status</label>
             <input type="text" class="form-control" id="status" formControlName="status">
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="!itemForm.valid">Submit</button>
+        <!-- <div class="form-group">
+            <label for="imageFile">Image</label>
+            <input type="file" class="form-control-file" id="imageFile" (change)="onImageFileChange($event)">
+        </div> -->
+        <div class="button-container d-flex justify-content-between">
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary" [disabled]="!itemForm.valid">Submit</button>
+            <!-- Modified Back Button -->
+            <button type="back" class="btn btn-primary" (click)="showAddItemForm = false" >Back</button>
+
+          
+        </div>
     </form>
 </div>
 
@@ -111,6 +121,7 @@
                 <th>Start Time</th>
                 <th>End Time</th>
                 <th>Status</th>
+                <th>Actions</th> <!-- New Actions Column -->
             </tr>
         </thead>
         <tbody>
@@ -126,10 +137,14 @@
                 <td>{{ item.startTime }}</td>
                 <td>{{ item.endTime }}</td>
                 <td>{{ item.status }}</td>
+                <td>
+                    <button class="btn btn-primary" routerLink="/bid">Bid</button> <!-- Bid Button Moved Here -->
+                </td>
             </tr>
         </tbody>
     </table>
 </div>
+
 
 <!-- Success Modal -->
 <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">

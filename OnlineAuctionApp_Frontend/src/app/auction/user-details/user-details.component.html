@@ -28,7 +28,11 @@
            <label for="username">Username:</label>
            <input type="text" id="username" formControlName="username">
          </div>
-         <button type="submit" class="btn btn-primary">Update</button>
+         <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-primary">Update</button>
+          <button (click)="navigateToItemListing()" type="button" class="btn btn-primary">Back</button>
+      </div>
+      
      </form>
      
      <div *ngIf="updateSuccess" class="update-success">

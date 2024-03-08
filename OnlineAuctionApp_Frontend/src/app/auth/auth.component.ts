@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent {
+  constructor(private router: Router) { }
+
+  
+  navigateToLogin() {
+    this.router.navigate(['/auth/login']);
+ }
 
 }

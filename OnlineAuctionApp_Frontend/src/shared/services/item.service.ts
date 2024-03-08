@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
+import { tap } from 'rxjs/operators'; // Import tap operator
 import { Item } from '../models/item-interface';
 import { urls } from 'src/urls';
 
@@ -9,9 +10,6 @@ import { urls } from 'src/urls';
 })
 export class ItemService {
 
- /**
- * Constructor for ItemService.
- */
  constructor(private http: HttpClient) { }
 
  /**
@@ -75,6 +73,12 @@ export class ItemService {
       console.error('itemId is undefined');
       return throwError('itemId is undefined');
     }
-    return this.http.get<Item>(`${urls.getItem}/${itemID}`);
+    return this.http.get<Item>(`${urls.getItem}/${itemID}`).pipe(
+      tap(item => {
+        if (item) {
+          console.log('Fetched item ID:', item.itemID);
+        }
+      })
+    );
  }
 }

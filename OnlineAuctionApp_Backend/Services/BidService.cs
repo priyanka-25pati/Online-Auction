@@ -52,7 +52,6 @@ namespace OnlineAuctionApp.Services
             return await _bidRepo.GetCurrentHighestBidAsync(itemId);
         }
 
-        // Implement the CreateBidWithRandomItemIdAsync method
         public async Task<Bids> CreateBidWithRandomItemIdAsync(Bids bid)
         {
             return await _bidRepo.CreateBidWithRandomItemIdAsync(bid);

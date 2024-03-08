@@ -55,7 +55,7 @@ namespace OnlineAuctionApp.Services
             await _userRepo.DeleteUserAsync(userId);
         }
 
-        // Modified admin authentication method
+      
         public async Task<Admins> AuthenticateAdminAsync(Admins admin)
         {
             return await _userRepo.AuthenticateAdminAsync(admin);

@@ -1,3 +1,5 @@
+
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ItemService } from 'src/shared/services/item.service';
@@ -6,29 +8,54 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { Item } from 'src/shared/models/item-interface';
 import { AuthService } from 'src/shared/services/auth.service';
-import { map } from 'rxjs/operators'; // Import map operator
+import { map } from 'rxjs/operators';
 
+/**
+ * Component for listing items.
+ */
 @Component({
  selector: 'app-item-listing',
  templateUrl: './item-listing.component.html',
  styleUrls: ['./item-listing.component.scss']
 })
 export class ItemListingComponent implements OnInit {
+ /**
+   * Form group for item listing.
+   */
  itemForm: FormGroup;
- items$: Observable<Item[]>;
- showAddItemForm = false;
- responseMessage: string = '';
- errorMessage: string = '';
- searchTerm: string = ''; // Property for search term
 
  /**
- * Constructor for ItemListingComponent.
- * @param {FormBuilder} formBuilder - The FormBuilder service for creating forms.
- * @param {ItemService} itemService - The ItemService for fetching and listing items.
- * @param {BidService} bidService - The BidService for handling bids.
- * @param {Router} router - The Router service for navigation.
- * @param {AuthService} authService - The AuthService for authentication.
- */
+   * Observable stream of items.
+   */
+ items$: Observable<Item[]>;
+
+ /**
+   * Flag to show or hide the add item form.
+   */
+ showAddItemForm = false;
+
+ /**
+   * Response message to display after successful operations.
+   */
+ responseMessage: string = '';
+
+ /**
+   * Error message to display after failed operations.
+   */
+ errorMessage: string = '';
+
+ /**
+   * Search term for filtering items.
+   */
+ searchTerm: string = '';
+
+ /**
+   * @param formBuilder - FormBuilder service for creating forms.
+   * @param itemService - ItemService for item operations.
+   * @param bidService - BidService for bid operations.
+   * @param router - Router for navigation.
+   * @param authService - AuthService for authentication operations.
+   */
  constructor(private formBuilder: FormBuilder, private itemService: ItemService, private bidService: BidService, private router: Router, private authService: AuthService) {
     this.itemForm = this.formBuilder.group({
       itemID: ['', Validators.required],
@@ -47,8 +74,8 @@ export class ItemListingComponent implements OnInit {
  }
 
  /**
- * Initializes the component by fetching the list of items.
- */
+   * Initialization logic.
+   */
  ngOnInit(): void {
     this.items$ = this.itemService.getItems();
     this.items$.subscribe(items => {
@@ -57,18 +84,18 @@ export class ItemListingComponent implements OnInit {
  }
 
  /**
- * Handles search input change and updates the items$ observable to filter based on the search term.
- * @param {any} event - The event object from the search input change.
- */
+   * Handles changes to the search term.
+   * @param event - The event object.
+   */
  onSearchTermChange(event: any): void {
     this.searchTerm = event.target.value;
     this.items$ = this.getFilteredItems();
  }
 
  /**
- * Filters the items based on the search term.
- * @returns {Observable<Item[]>} An Observable of the filtered items.
- */
+   * Filters items based on the search term.
+   * @returns Observable stream of filtered items.
+   */
  getFilteredItems(): Observable<Item[]> {
     return this.itemService.getItems().pipe(
       map(items => items.filter(item => item.title.toLowerCase().includes(this.searchTerm.toLowerCase())))
@@ -76,15 +103,15 @@ export class ItemListingComponent implements OnInit {
  }
 
  /**
- * Logs the user out.
- */
+   * Logs out the current user.
+   */
  logout(): void {
     this.authService.logout();
  }
 
  /**
- * Logs the validation status and errors of the item form.
- */
+   * Logs the validation status of the item form.
+   */
  logFormValidationStatus(): void {
     console.log('Form valid:', this.itemForm.valid);
     console.log('Form errors:', this.itemForm.errors);
@@ -92,14 +119,22 @@ export class ItemListingComponent implements OnInit {
  }
 
  /**
- * Handles the form submission for listing a new item.
- */
+   * Submits the item form.
+   */
  onSubmit(): void {
     this.logFormValidationStatus();
     if (this.itemForm.valid) {
       const item: Item = this.itemForm.value;
+      console.log('Submitting item with ID:', item.itemID); // Log the itemID before submission
       this.itemService.listItem(item).subscribe({
         next: (response: Item) => {
+          // Assuming the response contains the itemID
+          const itemID = response.itemID;
+          console.log('Item ID from response:', itemID);
+          // Store the itemID in local storage as a string
+          localStorage.setItem('lastItemID', itemID.toString());
+          console.log('ItemID stored in local storage:', localStorage.getItem('lastItemID')); // Log the stored itemID
+
           this.responseMessage = 'Item listed successfully';
           this.showAddItemForm = false;
           this.itemForm.reset();
@@ -115,11 +150,16 @@ export class ItemListingComponent implements OnInit {
  }
 
  /**
- * Navigates to the bid page for a specific item.
- * @param {number} itemId - The ID of the item to bid on.
- */
+   * Bids on an item.
+   * @param itemId - The ID of the item to bid on.
+   */
  bidOnItem(itemId: number): void {
     this.bidService.changeItemId(itemId);
     this.router.navigate(['/bid']);
  }
 }
+
+
+
+
+

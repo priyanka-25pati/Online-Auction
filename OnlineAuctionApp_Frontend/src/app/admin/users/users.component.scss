@@ -4,7 +4,6 @@ $secondary-color: #2A93D5;
 $tertiary-color: #3DDAD8;
 $quaternary-color: #709FB0;
 
-// Define styles
 body {
     font-family: Arial, sans-serif;
     background-color: $primary-color;
@@ -39,7 +38,7 @@ th, td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid $quaternary-color;
-    color: black; // Change table row names to black
+    color: black; 
 }
 
 button {
@@ -50,7 +49,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-right: 10px; // Add space between buttons
+    margin-right: 10px; 
 
     &:hover {
         background-color: $tertiary-color;
@@ -79,8 +78,8 @@ input[type="text"], input[type="email"] {
 input[type="submit"] {
     @extend button;
     width: auto;
-    padding: 10px 15px; // Decrease button size
-    width: 30%; // Reduce the "Update" button size to 30% of its current size
+    padding: 10px 15px; 
+    width: 30%;
 }
 
 input[type="text"][readonly], input[type="email"][readonly] {
@@ -88,17 +87,35 @@ input[type="text"][readonly], input[type="email"][readonly] {
     cursor: not-allowed;
 }
 
-// Specific adjustments for the update user section
 .update-user-form input[type="text"][readonly] {
-    width: 50%; // Decrease the size of the "User ID" field
+    width: 50%; 
 }
 
-// Styling for the message display area
 .message {
     background-color: $secondary-color;
     color: white;
     padding: 10px;
     margin-bottom: 20px;
-    border-radius: 5px;
+    border-radius: 0px;
     text-align: center;
+
+
+
+}
+
+.back-button {
+    position: absolute;
+    top: 3px; 
+    right: 20px; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color:$tertiary-color; 
+    color: #fff; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #709FB0; 
+    }
 }

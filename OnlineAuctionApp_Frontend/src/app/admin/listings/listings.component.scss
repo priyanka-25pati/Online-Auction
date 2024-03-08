@@ -1,4 +1,4 @@
-// Global styles
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f5f5f5;
@@ -21,15 +21,14 @@ body {
         color: #424874;
         margin-bottom: 20px;
     }
-
-    // Styling for the message display area
+ 
     .message {
-        background-color: #2A93D5; // Use the secondary color for the background
-        color: #fff; // Use white for the text color
+        background-color: #2A93D5; 
+        color: #fff;
         padding: 10px;
         margin-bottom: 20px;
-        border-radius: 5px;
-        text-align: center; // Center the text
+        border-radius: 0px;
+        text-align: center; 
     }
 
     .table {
@@ -56,16 +55,14 @@ body {
             background-color: #f5f5f5;
         }
 
-        // Styling for the actions column
         td:last-child {
-            display: flex; // Use flexbox for layout
-            justify-content: space-between; // Space buttons evenly
-            align-items: center; // Center buttons vertically
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
         }
 
-        // Styling for update and delete buttons
         button {
-            margin-right: 10px; // Add space between buttons
+            margin-right: 10px; 
             padding: 5px 10px;
             border: none;
             border-radius: 5px;
@@ -78,12 +75,10 @@ body {
             }
         }
 
-        // Update button specific styling
         button[data-action="update"] {
             background-color: #ABC7FF;
         }
 
-        // Delete button specific styling
         button[data-action="delete"] {
             background-color: #2A93D5;
         }
@@ -131,6 +126,22 @@ body {
                     background-color: #709FB0;
                 }
             }
+        }
+    }
+    .back-button {
+        position: absolute;
+        top: 3px; 
+        right: 20px; 
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color:#424874; 
+        color: #fff; 
+        cursor: pointer;
+        transition: background-color 0.3s ease;   
+
+        &:hover {
+            background-color: #709FB0;
         }
     }
 }

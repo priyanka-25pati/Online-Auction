@@ -10,4 +10,6 @@ export interface Item {
     startTime: string; 
     endTime: string; 
     status: string;
+    // imageBase64?: string; 
+
 }

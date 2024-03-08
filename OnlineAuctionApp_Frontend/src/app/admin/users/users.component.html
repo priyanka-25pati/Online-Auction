@@ -1,9 +1,11 @@
-<div *ngIf="message" class="message">
-    {{ message }}
-   </div>
+
    
    <div>
        <h2>User Details</h2>
+       <button (click)="navigateToAdmin()" class="back-button">Back</button>
+       <div *ngIf="message" class="message">
+        {{ message }}
+       </div>
        <table>
           <thead>
             <tr>

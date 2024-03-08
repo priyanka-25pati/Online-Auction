@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ItemService } from 'src/shared/services/item.service';
 import { Item } from 'src/shared/models/item-interface';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
  selector: 'app-listings',
@@ -19,7 +20,7 @@ export class ListingsComponent implements OnInit {
  * Constructor for ListingsComponent.
  * @param {ItemService} itemService - The ItemService for fetching and managing items.
  */
- constructor(private itemService: ItemService) { }
+ constructor(private itemService: ItemService,private router:Router) { }
 
  /**
  * Initializes the component by refreshing the items list and setting up the update form.
@@ -40,7 +41,10 @@ export class ListingsComponent implements OnInit {
       status: new FormControl(''),
     });
  }
-
+ navigateToAdmin()
+ {
+  this.router.navigate(['/admin']);
+ }
  /**
  * Refreshes the items list by fetching the latest items from the server.
  */

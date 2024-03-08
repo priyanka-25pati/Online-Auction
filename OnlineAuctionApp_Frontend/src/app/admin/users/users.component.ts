@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/shared/services/users.service';
 import { User } from 'src/shared/models/users-interface';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { Router } from '@angular/router';
 @Component({
  selector: 'app-users',
  templateUrl: './users.component.html',
@@ -20,7 +20,7 @@ export class UsersComponent implements OnInit {
  * Constructor for UsersComponent.
  * @param {UsersService} usersService - The UsersService for fetching and managing users.
  */
- constructor(private usersService: UsersService) {
+ constructor(private usersService: UsersService,private router:Router) {
    this.newUserForm = new FormGroup({
      username: new FormControl('', Validators.required),
      email: new FormControl('', [Validators.required, Validators.email]),
@@ -35,6 +35,10 @@ export class UsersComponent implements OnInit {
    });
  }
 
+ navigateToAdmin()
+ {
+  this.router.navigate(['/admin']);
+ }
  /**
  * Initializes the component by fetching the list of users.
  */

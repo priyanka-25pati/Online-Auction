@@ -163,7 +163,7 @@ namespace OnlineAuctionApp.Repository
                                 UserID = Convert.ToInt32(reader["UserID"]),
                                 Username = reader["Username"].ToString(),
                                 Email = reader["Email"].ToString(),
-                                PasswordHash = reader["PasswordHash"].ToString() // Store the hashed password
+                                PasswordHash = reader["PasswordHash"].ToString() 
                             };
 
                             users.Add(user);

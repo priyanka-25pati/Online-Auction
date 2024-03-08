@@ -12,7 +12,7 @@ namespace OnlineAuctionApp.Services.Interfaces
         Task UpdateUserAsync(Users user);
         Task DeleteUserAsync(int userId);
 
-        // Admin authentication method
+     
         Task<Admins> AuthenticateAdminAsync(Admins admin);
 
     }
